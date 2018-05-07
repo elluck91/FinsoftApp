@@ -1,49 +1,75 @@
 package org.elluck91.finsoft.main.employee;
 
 import java.sql.Date;
-import java.util.List;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.OneToMany;
-import javax.persistence.OneToOne;
-import javax.persistence.OrderBy;
 import javax.persistence.Table;
-
-import org.elluck91.finsoft.main.dept.emp.DepartmentEmployee;
-import org.elluck91.finsoft.main.salaries.Salaries;
 
 @Entity(name="Employee")
 @Table(name = "employees")
 public class Employee {
-	
+
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	@Column(name="emp_no")
 	private int id;
-	
-	
+
+
 	private Date birthDate;
-	
-	
+
+
 	private String firstName;
-	
-	
+
+
 	private String lastName;
-    
+
 	private String gender;
-    
-    
-    private Date hireDate;
-    
-    private String email;
-    
-    
-    public DepartmentEmployee department;
-    
-    @Id
-    @Column(name="emp_no")
-    public int getId() {
+
+
+	private Date hireDate;
+
+	private String email;
+
+	private int salary;
+
+	private String dept;
+
+	private String aboutme;
+
+
+	public String getAboutme() {
+		return aboutme;
+	}
+
+	public void setAboutme(String aboutme) {
+		this.aboutme = aboutme;
+	}
+
+	public String getDept() {
+		return dept;
+	}
+
+	public void setDept(String dept) {
+		this.dept = dept;
+	}
+
+	//    public DepartmentEmployee department;
+	@Column(name="salary")
+	public int getSalary() {
+		return salary;
+	}
+
+	public void setSalary(int salary) {
+		this.salary = salary;
+	}
+
+	
+	
+	public int getId() {
 		return id;
 	}
 
@@ -51,30 +77,30 @@ public class Employee {
 		this.id = id;
 	}
 
-    public List<Salaries> salaries;
-
-    public void setSalaries(List<Salaries> salaries) {
-		this.salaries = salaries;
-	}
-
-	@OneToMany
-	@JoinColumn(name="emp_no")
-    @OrderBy("to_date DESC")
-	public List<Salaries> getSalaries() {
-		return salaries;
-	}
-
-	
-	@OneToOne()
-	@JoinColumn(name= "emp_no")
-	public DepartmentEmployee getDepartment() {
-		return department;
-	}
+	//    public List<Salaries> salaries;
+	//
+	//    public void setSalaries(List<Salaries> salaries) {
+	//		this.salaries = salaries;
+	//	}
+	//
+	//	@OneToMany
+	//	@JoinColumn(name="emp_no")
+	//    @OrderBy("to_date DESC")
+	//	public List<Salaries> getSalaries() {
+	//		return salaries;
+	//	}
 
 
-	public void setDepartment(DepartmentEmployee department) {
-		this.department = department;
-	}
+	//	@OneToOne()
+	//	@JoinColumn(name= "emp_no")
+	//	public DepartmentEmployee getDepartment() {
+	//		return department;
+	//	}
+	//
+	//
+	//	public void setDepartment(DepartmentEmployee department) {
+	//		this.department = department;
+	//	}
 
 	@Column(name="birth_date")
 	public Date getBirthDate() {
@@ -140,11 +166,8 @@ public class Employee {
 		// TODO Auto-generated constructor stub
 	}
 
-
-
-
 	public Employee(int id, Date birthDate, String firstName, String lastName, String gender, Date hireDate,
-			String email, DepartmentEmployee department, List<Salaries> salaries) {
+			String email, int salary, String dept, String aboutme) {
 		super();
 		this.id = id;
 		this.birthDate = birthDate;
@@ -153,13 +176,19 @@ public class Employee {
 		this.gender = gender;
 		this.hireDate = hireDate;
 		this.email = email;
-		this.department = department;
-		this.salaries = salaries;
+		this.salary = salary;
+		this.dept = dept;
+		this.aboutme = aboutme;
 	}
 
 	@Override
 	public String toString() {
 		return "Employee [id=" + id + ", birthDate=" + birthDate + ", firstName=" + firstName + ", lastName=" + lastName
-				+ ", gender=" + gender + ", hireDate=" + hireDate + ", email=" + email + ", salaries=" + salaries + "]";
+				+ ", gender=" + gender + ", hireDate=" + hireDate + ", email=" + email + ", salary=" + salary
+				+ ", dept=" + dept + ", aboutme=" + aboutme + "]";
 	}
+
+
+
+
 }

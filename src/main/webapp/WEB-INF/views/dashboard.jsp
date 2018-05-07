@@ -6,7 +6,7 @@
     <link rel="apple-touch-icon" sizes="76x76" href="/resources/assets/img/apple-icon.png" />
     <link rel="icon" type="image/png" href="/resources/assets/img/favicon.png" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
-    <title>Material Dashboard by Creative Tim</title>
+    <title>Material Dashboard by Finsoft</title>
     <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport' />
     <meta name="viewport" content="width=device-width" />
     <!-- Bootstrap core CSS     -->
@@ -29,8 +29,8 @@
         Tip 2: you can also add an image using data-image tag
     -->
             <div class="logo">
-                <a href="http://www.creative-tim.com" class="simple-text">
-                    Creative Tim
+                <a href="http://localhost:8080" class="simple-text">
+                    Finsoft
                 </a>
             </div>
             <div class="sidebar-wrapper">
@@ -44,43 +44,19 @@
                     <li>
                         <a href="./employee">
                             <i class="material-icons">person</i>
-                            <p>User Profile</p>
+                            <p>Add Employee</p>
                         </a>
                     </li>
                     <li>
-                        <a href="./table.html">
+                        <a href="/employee">
                             <i class="material-icons">content_paste</i>
-                            <p>Table List</p>
+                            <p>Employees</p>
                         </a>
                     </li>
                     <li>
-                        <a href="./typography.html">
-                            <i class="material-icons">library_books</i>
-                            <p>Typography</p>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="./icons.html">
+                        <a href="/employee/dept">
                             <i class="material-icons">bubble_chart</i>
-                            <p>Icons</p>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="./maps.html">
-                            <i class="material-icons">location_on</i>
-                            <p>Maps</p>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="./notifications.html">
-                            <i class="material-icons text-gray">notifications</i>
-                            <p>Notifications</p>
-                        </a>
-                    </li>
-                    <li class="active-pro">
-                        <a href="upgrade.html">
-                            <i class="material-icons">unarchive</i>
-                            <p>Upgrade to PRO</p>
+                            <p>Departments</p>
                         </a>
                     </li>
                 </ul>
@@ -105,6 +81,12 @@
                                     <i class="material-icons">person</i>
                                     <p class="hidden-lg hidden-md">Profile</p>
                                 </a>
+                                <ul class="dropdown-menu">
+                                    <li>
+                                        <a href="/logout">Logout</a>
+                                    </li>
+
+                                </ul>
                             </li>
                         </ul>
                     </div>
@@ -529,7 +511,7 @@
                         <script>
                             document.write(new Date().getFullYear())
                         </script>
-                        <a href="http://www.creative-tim.com">Creative Tim</a>, made with love for a better web
+                        <a href="http://localhost:8080">Finsoft</a>, financial software.
                     </p>
                 </div>
             </footer>

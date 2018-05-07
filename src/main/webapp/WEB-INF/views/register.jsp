@@ -1,5 +1,6 @@
 <!doctype html>
 <%@ page import = "java.io.*,java.util.*, org.elluck91.finsoft.main.employee.Employee" %>
+<%@page import="java.text.SimpleDateFormat" %>  
 <html lang="en">
 
 <head>
@@ -30,58 +31,34 @@
         Tip 2: you can also add an image using data-image tag
     -->
             <div class="logo">
-                <a href="http://www.creative-tim.com" class="simple-text">
-                    Creative Tim
+                <a href="http://localhost:8080" class="simple-text">
+                    Finsoft
                 </a>
             </div>
             <div class="sidebar-wrapper">
                 <ul class="nav">
-                    <li>
+                    <li class="active">
                         <a href="dashboard.html">
                             <i class="material-icons">dashboard</i>
                             <p>Dashboard</p>
                         </a>
                     </li>
-                    <li class="active">
-                        <a href="./user.html">
+                    <li>
+                        <a href="./employee">
                             <i class="material-icons">person</i>
-                            <p>User Profile</p>
+                            <p>Add Employee</p>
                         </a>
                     </li>
                     <li>
-                        <a href="./table.html">
+                        <a href="/employee">
                             <i class="material-icons">content_paste</i>
-                            <p>Table List</p>
+                            <p>Employees</p>
                         </a>
                     </li>
                     <li>
-                        <a href="./typography.html">
-                            <i class="material-icons">library_books</i>
-                            <p>Typography</p>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="./icons.html">
+                        <a href="/employee/dept">
                             <i class="material-icons">bubble_chart</i>
-                            <p>Icons</p>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="./maps.html">
-                            <i class="material-icons">location_on</i>
-                            <p>Maps</p>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="./notifications.html">
-                            <i class="material-icons text-gray">notifications</i>
-                            <p>Notifications</p>
-                        </a>
-                    </li>
-                    <li class="active-pro">
-                        <a href="upgrade.html">
-                            <i class="material-icons">unarchive</i>
-                            <p>Upgrade to PRO</p>
+                            <p>Departments</p>
                         </a>
                     </li>
                 </ul>
@@ -117,25 +94,22 @@
                         <div class="col-md-8">
                             <div class="card">
                                 <div class="card-header" data-background-color="purple">
-                                    <h4 class="title">Edit Profile</h4>
-                                    <p class="category">Complete your profile</p>
+                                    <h4 class="title">Register New Employee</h4>
+                                    <p class="category">Complete the profile</p>
                                 </div>
                                 <div class="card-content">
-                                    <form method="POST" action="/employee">
+                                    <form method="POST" action="/employee/add">
                                         <div class="row">
                                             <div class="col-md-6">
                                                 <div class="form-group label-floating">
                                                     <label class="control-label">Employee #</label>
-                                                    <input type="text" class="form-control" name="id" value=${employee.getId()}>
+                                                    <input type="text" class="form-control" name="id" value="null" readonly>
                                                 </div>
-                                            </div>
-
-                                            <input type=hidden name="gender" value=${employee.getGender()}>
-                                            
+                                            </div>                                            
                                             <div class="col-md-6">
                                                 <div class="form-group label-floating">
                                                     <label class="control-label">Email</label>
-                                                    <input type="text" class="form-control" name="email" value="${employee.getEmail()}">
+                                                    <input type="text" class="form-control" name="email" value="Email">
                                                 </div>
                                             </div>
                                         </div>
@@ -144,7 +118,7 @@
                                             <div class="col-md-6">
                                                 <div class="form-group label-floating">
                                                     <label class="control-label">Salary</label>
-                                                    <input type="text" class="form-control" name="salary" value=${employee.getSalary()}>
+                                                    <input type="text" class="form-control" name="salary" value="100000">
                                                 </div>
                                             </div>
                                             <div class="col-md-6">
@@ -157,30 +131,36 @@
                                             </div>
                                         </div>
                                         <div class="row">
-                                            <div class="col-md-6">
+                                            <div class="col-md-5">
                                                 <div class="form-group label-floating">
                                                     <label class="control-label">Fist Name</label>
-                                                    <input type="text" class="form-control" name="firstName" value=${employee.getFirstName()}>
+                                                    <input type="text" class="form-control" name="firstName" value="First Name">
                                                 </div>
                                             </div>
-                                            <div class="col-md-6">
+                                            <div class="col-md-5">
                                                 <div class="form-group label-floating">
                                                     <label class="control-label">Last Name</label>
-                                                    <input type="text" class="form-control" name="lastName" value=${employee.getLastName()}>
+                                                    <input type="text" class="form-control" name="lastName" value="Last Name">
+                                                </div>
+                                            </div>
+                                            <div class="col-md-2">
+                                                <div class="form-group label-floating">
+                                                    <label class="control-label">Last Name</label>
+                                                    <input type="text" class="form-control" name="gender" value="M/F">
                                                 </div>
                                             </div>
                                         </div>
                                         <div class="row">
                                             <div class="col-md-6">
-                                                <div class="form-group label-floating">
+                                                <div class="form-group">
                                                     <label class="control-label">Birth Date</label>
-                                                    <input type="text" class="form-control" name="birthDate" value=${employee.getBirthDate()}>
+                                                    <input type="date" class="form-control" name="birthDate" value="mm/dd/yyyy">
                                                 </div>
                                             </div>
                                             <div class="col-md-6">
-                                                <div class="form-group label-floating">
+                                                <div class="form-group">
                                                     <label class="control-label">Hire Date</label>
-                                                    <input type="text" class="form-control" name="hireDate" value=${employee.getHireDate()}>
+                                                    <input type="date" class="form-control" name="hireDate" value="mm/dd/yyyy">
                                                 </div>
                                             </div>
                                         </div>
@@ -189,15 +169,15 @@
                                                 <div class="form-group">
                                                     <label>About Me</label>
                                                     <div class="form-group label-floating">
-                                                        <label class="control-label">${employee.getAboutme()}</label>
-                                                        <textarea class="form-control" rows="5"></textarea>
+                                                        <label class="control-label"> About me...</label>
+                                                        <textarea name="aboutme" class="form-control" rows="5"></textarea>
                                                     </div>
                                                 </div>
                                             </div>
                                         </div>
                                           <input type="hidden"  name="${_csrf.parameterName}"   value="${_csrf.token}"/>
-
-                                        <input type="submit" class="btn btn-primary pull-right" value="Update Profile"/>
+                                        <input type="hidden" class="form-control" name="emp_no" value=null>
+                                        <input type="submit" class="btn btn-primary pull-right" value="Register"/>
                                         <div class="clearfix"></div>
                                     </form>
                                 </div>
@@ -214,7 +194,7 @@
                                     <h6 class="category text-gray">CEO / Co-Founder</h6>
                                     <h4 class="card-title">Alec Thompson</h4>
                                     <p class="card-content">
-                                        Don't be scared of the truth because we need to restart the human foundation in truth And I love you like Kanye loves Kanye I love Rick Owens’ bed design but the back is...
+                                        Don't be scared of the truth because we need to restart the human foundation in truth And I love you like Kanye loves Kanye I love Rick Owensâ bed design but the back is...
                                     </p>
                                     <a href="#pablo" class="btn btn-primary btn-round">Follow</a>
                                 </div>

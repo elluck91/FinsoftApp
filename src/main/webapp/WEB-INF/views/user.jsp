@@ -123,22 +123,6 @@
                                 <div class="card-content">
                                     <form method="POST" action="/employee">
                                         <div class="row">
-                                            <!-- <div class="col-md-6">
-                                                <div class="form-group label-floating">
-                                                    <label class="control-label">Department</label>
-                                                    <select class="form-control" id="department" name="department">
-                                                        <option>Customer Service</option>
-                                                        <option>Development</option>
-                                                        <option>Finance</option>
-                                                        <option>Human Resources</option>
-                                                        <option>Marketing</option>
-                                                        <option>Production</option>
-                                                        <option>Quality Management</option>
-                                                        <option>Research</option>
-                                                        <option>Sales</option>
-                                                        <option selected="selected"><c:out value="" /></select></option>
-                                                </div>
-                                            </div> -->
                                             <div class="col-md-6">
                                                 <div class="form-group label-floating">
                                                     <label class="control-label">Employee #</label>
@@ -159,15 +143,17 @@
                                         <div class="row">
                                             <div class="col-md-6">
                                                 <div class="form-group label-floating">
-                                                    <label class="control-label">Title</label>
-                                                    <!-- <input type="text" class="form-control" name="department" value=${employee.getDepartment().getId()}> -->
+                                                    <label class="control-label">Salary</label>
+                                                    <input type="text" class="form-control" name="salary" value=${employee.getSalary()}>
                                                 </div>
                                             </div>
                                             <div class="col-md-6">
-                                                <div class="form-group label-floating">
-                                                    <label class="control-label">Salary</label>
-                                                    <input type="text" class="form-control" name="employee.getSalaries()" value=${employee.getSalaries()}>
-                                                </div>
+                                                <select class="form-control" name="dept">
+                                                    <option value="General" ${employee.getDept() == "General" ? 'selected="selected"' : ''}>General</option>
+                                                    <option value="Sales" ${employee.getDept() == "Sales" ? 'selected="selected"' : ''}>Sales</option>
+                                                    <option value="Development" ${employee.getDept() == "Development" ? 'selected="selected"' : ''}>Development</option>
+                                                    <option value="Marketing" ${employee.getDept() == "Marketing" ? 'selected="selected"' : ''}>Marketing</option>
+                                                </select>
                                             </div>
                                         </div>
                                         <div class="row">
@@ -188,7 +174,7 @@
                                             <div class="col-md-6">
                                                 <div class="form-group label-floating">
                                                     <label class="control-label">Birth Date</label>
-                                                    <input type="date" class="form-control" name="birthDate" value=${employee.getBirthDate()}>
+                                                    <input type="text" class="form-control" name="birthDate" value=${employee.getBirthDate()}>
                                                 </div>
                                             </div>
                                             <div class="col-md-6">
@@ -203,7 +189,7 @@
                                                 <div class="form-group">
                                                     <label>About Me</label>
                                                     <div class="form-group label-floating">
-                                                        <label class="control-label"> Lamborghini Mercy, Your chick she so thirsty, I'm in that two seat Lambo.</label>
+                                                        <label class="control-label">${employee.getAboutme()}</label>
                                                         <textarea class="form-control" rows="5"></textarea>
                                                     </div>
                                                 </div>
