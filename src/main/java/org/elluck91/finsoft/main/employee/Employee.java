@@ -3,6 +3,7 @@ package org.elluck91.finsoft.main.employee;
 import java.sql.Date;
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
@@ -18,30 +19,30 @@ import org.elluck91.finsoft.main.salaries.Salaries;
 @Entity(name="Employee")
 @Table(name = "employees")
 public class Employee {
-	@Id
-    @Column(name="emp_no")
+	
 	private int id;
 	
-	@Column(name="birth_date")
+	
 	private Date birthDate;
 	
-	@Column(name="first_name")
+	
 	private String firstName;
 	
-	@Column(name = "last_name")
+	
 	private String lastName;
     
 	private String gender;
     
-    @Column(name = "hire_date")
+    
     private Date hireDate;
     
     private String email;
     
-    @OneToOne
-    @JoinColumn(name="emp_no", insertable=false, updatable=false)
-    private DepartmentEmployee department;
     
+    public DepartmentEmployee department;
+    
+    @Id
+    @Column(name="emp_no")
     public int getId() {
 		return id;
 	}
@@ -50,20 +51,22 @@ public class Employee {
 		this.id = id;
 	}
 
-	@OneToMany
-	@JoinColumn(name="emp_no", insertable=false, updatable=false)
-    @OrderBy("to_date DESC")
-    private List<Salaries> salaries;
+    public List<Salaries> salaries;
 
+    public void setSalaries(List<Salaries> salaries) {
+		this.salaries = salaries;
+	}
+
+	@OneToMany
+	@JoinColumn(name="emp_no")
+    @OrderBy("to_date DESC")
 	public List<Salaries> getSalaries() {
 		return salaries;
 	}
 
-	public void setSalaries(List<Salaries> salaries) {
-		salaries.clear();
-		this.salaries.addAll(salaries);
-	}
-
+	
+	@OneToOne()
+	@JoinColumn(name= "emp_no")
 	public DepartmentEmployee getDepartment() {
 		return department;
 	}
@@ -73,17 +76,7 @@ public class Employee {
 		this.department = department;
 	}
 
-
-	public int getEmp_no() {
-		return id;
-	}
-
-
-	public void setEmp_no(int empNo) {
-		this.id = empNo;
-	}
-
-
+	@Column(name="birth_date")
 	public Date getBirthDate() {
 		return birthDate;
 	}
@@ -93,7 +86,7 @@ public class Employee {
 		this.birthDate = birthDate;
 	}
 
-
+	@Column(name="first_name")
 	public String getFirstName() {
 		return firstName;
 	}
@@ -103,7 +96,7 @@ public class Employee {
 		this.firstName = firstName;
 	}
 
-
+	@Column(name = "last_name")
 	public String getLastName() {
 		return lastName;
 	}
@@ -123,7 +116,7 @@ public class Employee {
 		this.gender = gender;
 	}
 
-
+	@Column(name = "hire_date")
 	public Date getHireDate() {
 		return hireDate;
 	}
@@ -146,17 +139,8 @@ public class Employee {
 	public Employee() {
 		// TODO Auto-generated constructor stub
 	}
-	
-	public Salaries getLatestSalary() {
-		int res = 0;
-		Date latest = salaries.get(0).getToDate();
-		for (int i = 1; i < salaries.size(); i++) {
-			if (latest.compareTo(salaries.get(i).getToDate()) < 0)
-				res = i;
-		}
-		
-		return salaries.get(res);
-	}
+
+
 
 
 	public Employee(int id, Date birthDate, String firstName, String lastName, String gender, Date hireDate,
@@ -173,11 +157,9 @@ public class Employee {
 		this.salaries = salaries;
 	}
 
-
 	@Override
 	public String toString() {
 		return "Employee [id=" + id + ", birthDate=" + birthDate + ", firstName=" + firstName + ", lastName=" + lastName
-				+ ", gender=" + gender + ", hireDate=" + hireDate + ", email=" + email + ", department=" + department
-				+ ", salaries=" + salaries + "]";
+				+ ", gender=" + gender + ", hireDate=" + hireDate + ", email=" + email + ", salaries=" + salaries + "]";
 	}
 }

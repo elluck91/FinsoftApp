@@ -141,8 +141,8 @@
                                             </div> -->
                                             <div class="col-md-6">
                                                 <div class="form-group label-floating">
-                                                    <label for="id" class="control-label">Employee #</label>
-                                                    <input type="number" class="form-control" name="id" value="${employee.getEmp_no()}" readonly="readonly">
+                                                    <label class="control-label">Employee #</label>
+                                                    <input type="text" class="form-control" name="id" value=${employee.getId()}>
                                                 </div>
                                             </div>
 
@@ -160,13 +160,13 @@
                                             <div class="col-md-6">
                                                 <div class="form-group label-floating">
                                                     <label class="control-label">Title</label>
-                                                    <!-- <input type="text" class="form-control" name="department" value=${employee.getDepartment().getDept_no()}> -->
+                                                    <!-- <input type="text" class="form-control" name="department" value=${employee.getDepartment().getId()}> -->
                                                 </div>
                                             </div>
                                             <div class="col-md-6">
                                                 <div class="form-group label-floating">
                                                     <label class="control-label">Salary</label>
-                                                    <!-- <input type="text" class="form-control" name="salaries" value=${employee.getSalaries().get(0).getSalary()}> -->
+                                                    <input type="text" class="form-control" name="employee.getSalaries()" value=${employee.getSalaries()}>
                                                 </div>
                                             </div>
                                         </div>

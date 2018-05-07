@@ -35,7 +35,10 @@ public class EmployeeController {
 	
 	@RequestMapping(value = "/employee", method = RequestMethod.POST)
 	public String updateEmployee(@ModelAttribute("employee") Employee employee) {
-		System.out.println(employee.getBirthDate());
+		employee.setId(employee.getId());
+		System.out.println("Emp_no: " + employee.getId());
+		System.out.println("Emp birth day: " + employee.getBirthDate());
+		System.out.println("Emp salary: " + employee.getSalaries());
 		System.out.println("Inside post request.");
 		employeeRepository.save(employee);
 		

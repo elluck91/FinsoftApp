@@ -1,8 +1,5 @@
 package org.elluck91.finsoft.main.dept.emp;
 
-import java.util.List;
-
-import org.elluck91.finsoft.main.employee.Employee;
 import org.elluck91.finsoft.main.repository.DepartmentEmployeeRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -25,7 +22,6 @@ public class DepartmentEmployeeController {
 	@RequestMapping(value = "/department/{id}", method = RequestMethod.GET)
 	public String getAllEmployees(@PathVariable("id") String id, Model model) {
 		System.out.println("Department Id: " + id);
-		//System.out.println(departmentEmployeeRepository.findOne(id));
-				return "user";
+		return "user";
 	}
 }

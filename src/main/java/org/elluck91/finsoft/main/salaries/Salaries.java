@@ -26,7 +26,7 @@ public class Salaries implements Serializable{
 	private Employee employee;
 	
 	@Column(name = "salary")
-	private int salary;
+	public int salary;
 	
 	@Id
 	@Column(name="from_date")
@@ -81,7 +81,7 @@ public class Salaries implements Serializable{
 
 	@Override
 	public String toString() {
-		return "Salaries [Employee=" + employee + ", salary=" + salary + ", fromDate=" + fromDate + ", toDate=" + toDate + "]";
+		return salary + "";
 	}
 	
 	
