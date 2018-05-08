@@ -100,7 +100,7 @@
                 <div class="container-fluid">
                     <div class="row">
                         <div class="col-md-12">
-                            <a href="https://github.com"><h2>GitHub</h2></a>                            
+                            <a href="https://github.com"><h2>GitHub - doesn't work</h2></a>                            
                         </div>
                     </div>
                 </div>
