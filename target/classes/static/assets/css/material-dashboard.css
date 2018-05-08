@@ -5160,8 +5160,15 @@ footer .btn {
 }
 
 .card .card-header .category {
+    padding: 10px;
     margin-bottom: 0;
     color: rgba(255, 255, 255, 0.62);
+}
+
+.card .card-header .category:hover{
+    padding: 10px;
+    margin-bottom: 0;
+    background-color: rgb(140, 55, 156);
 }
 
 .card .card-header.card-chart {

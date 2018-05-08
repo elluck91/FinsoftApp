@@ -42,19 +42,19 @@
                         </a>
                     </li>
                     <li>
-                        <a href="./employee">
+                        <a href="${pageContext.request.contextPath}/employee">
                             <i class="material-icons">person</i>
                             <p>Add Employee</p>
                         </a>
                     </li>
                     <li>
-                        <a href="/employee">
+                        <a href="${pageContext.request.contextPath}/employee/name/A/0">
                             <i class="material-icons">content_paste</i>
                             <p>Employees</p>
                         </a>
                     </li>
                     <li>
-                        <a href="/employee/dept">
+                        <a href="${pageContext.request.contextPath}/employee/dept/General/0">
                             <i class="material-icons">bubble_chart</i>
                             <p>Departments</p>
                         </a>

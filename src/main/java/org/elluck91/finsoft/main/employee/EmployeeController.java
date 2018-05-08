@@ -5,6 +5,8 @@ import java.util.List;
 import org.apache.catalina.servlet4preview.http.HttpServletRequest;
 import org.elluck91.finsoft.main.repository.EmployeeRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -46,17 +48,30 @@ public class EmployeeController {
 
 	}
 	
-	@RequestMapping(value = "/employee/dept/{dept}", method = RequestMethod.GET)
-	public String getEmployeeByDept(@PathVariable("dept") String dept, Model model) {
-		List<Employee> employees = employeeRepository.getByDept(dept);
-		int i = 0;
-		for (Employee emp : employees) {
-			if (i > 10)
-				break;
-			System.out.println(emp.toString());
-			i++;
-		}
-		return "user";
+	@RequestMapping(value = "/employee/dept/{dept}/{index}", method = RequestMethod.GET)
+	public String getEmployeeByDept(@PathVariable("dept") String dept,
+			@PathVariable("index") int index, Model model) {
+		Pageable topTen = new PageRequest(index, 10);
+		List<Employee> result = employeeRepository.findByDeptOrderByIdAsc(dept, topTen); 
+		model.addAttribute("employee", result);
+		model.addAttribute("index", index);
+		model.addAttribute("count", 279212);
+		model.addAttribute("dept", dept);
+		return "dept";
+	}
+	
+	@RequestMapping(value = "/employee/name/{LastName}/{index}", method = RequestMethod.GET)
+	public String getEmployeeByLastName(@PathVariable("LastName") String lastName,
+			@PathVariable("index") int index, Model model) {
+		System.out.println("Here");
+		char two = (char) (lastName.charAt(0) + 1);
+		Pageable topTen = new PageRequest(index, 10);
+		List<Employee> result = employeeRepository.findByLastNameOrderByLastNameAsc(lastName, Character.toString(two), topTen); 
+		model.addAttribute("employee", result);
+		model.addAttribute("index", index);
+		model.addAttribute("count", 279212);
+		model.addAttribute("name", lastName);
+		return "name";
 	}
 	
 	@RequestMapping(value = "/employee/add", method = RequestMethod.POST)
