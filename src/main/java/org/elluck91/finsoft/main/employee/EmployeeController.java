@@ -48,6 +48,12 @@ public class EmployeeController {
 
 	}
 	
+	@RequestMapping(value = "/integrations", method = RequestMethod.GET)
+	public String getPage() {
+		
+		return "integrations";
+	}
+	
 	@RequestMapping(value = "/employee/dept/{dept}/{index}", method = RequestMethod.GET)
 	public String getEmployeeByDept(@PathVariable("dept") String dept,
 			@PathVariable("index") int index, Model model) {

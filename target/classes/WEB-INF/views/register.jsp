@@ -38,7 +38,7 @@
             <div class="sidebar-wrapper">
                 <ul class="nav">
                     <li class="active">
-                        <a href="dashboard.html">
+                        <a href="/">
                             <i class="material-icons">dashboard</i>
                             <p>Dashboard</p>
                         </a>
@@ -83,6 +83,12 @@
                                     <i class="material-icons">person</i>
                                     <p class="hidden-lg hidden-md">Profile</p>
                                 </a>
+                                <ul class="dropdown-menu">
+                                    <li>
+                                        <a href="/logout">Logout</a>
+                                    </li>
+
+                                </ul>
                             </li>
                         </ul>
                     </div>
@@ -234,7 +240,7 @@
                         <script>
                             document.write(new Date().getFullYear())
                         </script>
-                        <a href="http://www.creative-tim.com">Creative Tim</a>, made with love for a better web
+                        <a href="http://localhost:8080">Finsoft</a>, financial software.
                     </p>
                 </div>
             </footer>

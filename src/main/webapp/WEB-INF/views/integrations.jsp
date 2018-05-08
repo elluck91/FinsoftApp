@@ -100,58 +100,7 @@
                 <div class="container-fluid">
                     <div class="row">
                         <div class="col-md-12">
-                            <div class="card card-plain">
-                                <div class="card-header" data-background-color="purple">
-                                    <h4 class="title">Department</h4>
-                                    <a href="${pageContext.request.contextPath}/employee/dept/General/0" class="category">General</a>
-                                    <a href="${pageContext.request.contextPath}/employee/dept/Sales/0" class="category">Sales</a>
-                                    <a href="${pageContext.request.contextPath}/employee/dept/Development/0" class="category">Development</a>
-                                    <a href="${pageContext.request.contextPath}/employee/dept/Marketing/0" class="category">Marketing</a>
-                                </div>
-                                <div class="card-content table-responsive">
-                                    <table class="table table-hover">
-                                        <thead>
-                                            <th>Employee #</th>
-                                            <th>First Name</th>
-                                            <th>Last Name</th>
-                                            <th>Hire Date</th>
-                                            <th>Salary</th>
-                                            <th>Department</th>
-                                        </thead>
-                                        <tbody>
-                                            <c:forEach begin="0" end= "${ employee.size() }" step="1" varStatus="loopCounter"
-                                                items="${employee}" var="emp">
-                                            <tr>
-                                                <td>
-                                                    <a href="${pageContext.request.contextPath}/employee/${emp.getId()}"><c:out value="${emp.getId()}" /></a>
-                                                </td>
-                                                <td>
-                                                    <c:out value="${emp.getFirstName()}" />
-                                                </td>
-                                                <td>
-                                                    <c:out value="${emp.getLastName()}" />
-                                                </td>
-                                                <td>
-                                                    <c:out value="${emp.getHireDate()}" />
-                                                </td>
-                                                <td>
-                                                    <c:out value="${emp.getSalary()}" />
-                                                </td>
-                                                <td>
-                                                    <c:out value="${emp.getDept()}" />
-                                                </td>
-                                            </tr>
-                                            </c:forEach>
-                                        </tbody>
-                                    </table>
-                                    <c:if test="${index > 0}">
-                                        <a href="/employee/dept/${dept}/${index-1}">Previous</a>
-                                    </c:if>
-                                    <c:if test="${index < (count/10)}">
-                                        <a href="/employee/dept/${dept}/${index+1}">Next</a>
-                                    </c:if>
-                                </div>
-                            </div>
+                            <a href="https://github.com"><h2>GitHub</h2></a>                            
                         </div>
                     </div>
                 </div>

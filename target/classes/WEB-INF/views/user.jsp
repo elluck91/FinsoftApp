@@ -37,7 +37,7 @@
             <div class="sidebar-wrapper">
                 <ul class="nav">
                     <li class="active">
-                        <a href="dashboard.html">
+                        <a href="/">
                             <i class="material-icons">dashboard</i>
                             <p>Dashboard</p>
                         </a>
@@ -82,6 +82,12 @@
                                     <i class="material-icons">person</i>
                                     <p class="hidden-lg hidden-md">Profile</p>
                                 </a>
+                                <ul class="dropdown-menu">
+                                    <li>
+                                        <a href="/logout">Logout</a>
+                                    </li>
+
+                                </ul>
                             </li>
                         </ul>
                     </div>
@@ -148,15 +154,15 @@
                                         </div>
                                         <div class="row">
                                             <div class="col-md-6">
-                                                <div class="form-group label-floating">
+                                                <div class="form-group">
                                                     <label class="control-label">Birth Date</label>
-                                                    <input type="text" class="form-control" name="birthDate" value=${employee.getBirthDate()}>
+                                                    <input type="date" class="form-control" name="birthDate" value=${employee.getBirthDate()}>
                                                 </div>
                                             </div>
                                             <div class="col-md-6">
-                                                <div class="form-group label-floating">
+                                                <div class="form-group">
                                                     <label class="control-label">Hire Date</label>
-                                                    <input type="text" class="form-control" name="hireDate" value=${employee.getHireDate()}>
+                                                    <input type="date" class="form-control" name="hireDate" value=${employee.getHireDate()}>
                                                 </div>
                                             </div>
                                         </div>
@@ -166,7 +172,7 @@
                                                     <label>About Me</label>
                                                     <div class="form-group label-floating">
                                                         <label class="control-label">${employee.getAboutme()}</label>
-                                                        <textarea class="form-control" rows="5"></textarea>
+                                                        <textarea name="aboutme" class="form-control" rows="5"></textarea>
                                                     </div>
                                                 </div>
                                             </div>
@@ -230,7 +236,7 @@
                         <script>
                             document.write(new Date().getFullYear())
                         </script>
-                        <a href="http://www.creative-tim.com">Creative Tim</a>, made with love for a better web
+                        <a href="http://localhost:8080">Finsoft</a>, financial software.
                     </p>
                 </div>
             </footer>
