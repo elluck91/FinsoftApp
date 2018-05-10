@@ -8,7 +8,7 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 
-@Transactional
+//@Transactional
 public interface EmployeeRepository extends JpaRepository<Employee, Integer> {
 	List<Employee> findByDeptOrderByIdAsc(String dept, Pageable topTen);
 	
