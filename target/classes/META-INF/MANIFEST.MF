@@ -1,9 +1,9 @@
 Manifest-Version: 1.0
 Implementation-Title: Financial Software
 Implementation-Version: 0.0.1-SNAPSHOT
-Built-By: Student
+Built-By: root
 Implementation-Vendor-Id: org.elluck91.finsoft
-Build-Jdk: 1.8.0_171
+Build-Jdk: 1.8.0_162
 Implementation-URL: http://projects.spring.io/spring-boot/FinsoftApp/
 Created-By: Maven Integration for Eclipse
 Implementation-Vendor: Pivotal Software, Inc.
